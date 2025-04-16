@@ -1,0 +1,127 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+:root{
+    --cor1: #BD3537;
+    --cor2: #0E7D4F;
+    --cor3: #FFF0D9; 
+    --fonteTitulo: "Cinzel Decorative"; 
+    --fonteTexto: "Open Sans";
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: var(--fonteTexto);
+}
+
+
+body{
+    height: 100vh;
+    display: grid;
+    grid-template-rows:  300px 1fr 30px;
+    grid-template-columns: 1fr;
+    grid-template-areas: "cabecalho" "produtos" "pedidos";
+}
+
+@media (min-width: 768px){
+    body{
+        grid-template-rows:  200px 1fr 30px; 
+    }
+}
+
+h1{
+    font-family: var(--fonteTitulo);
+    font-size: 3rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.372);
+}
+
+h2{
+    font-family: var(--fonteTitulo);
+    font-weight: 500;
+    padding: 10px;
+}
+header{
+    grid-area: cabecalho;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--cor2);
+}
+
+.boas-vindas{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+
+
+
+
+
+main{
+    grid-area: produtos;
+    background-color: var(--cor3);
+    padding-top: 20px;
+}
+
+.conteudo{
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.pizzas{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+@media (min-width: 1135px){
+    .pizzas{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    }
+}
+
+.img-pizza{
+    width: 180px;
+    height: 150px;
+    border-radius: 6px;
+}
+
+.descricao-pizza{
+    display: flex;
+    align-items: center;
+    padding:5px 10px 10px 10px ;
+}
+
+.descricao-pizza:hover{
+    background-color: black;
+    color: white;
+}
+
+.descricao {
+    display: flex;
+    flex-flow: column;
+    margin-left: 10px;
+    max-width: 350px;
+    font-size: .8rem;
+}
+
+
+
+
+
+footer{
+    grid-area: pedidos;
+    position: sticky;
+    bottom: 0px;
+    background-color: var(--cor1);
+}
