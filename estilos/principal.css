@@ -103,7 +103,7 @@ main{
     margin-bottom: 10px;
 }
 
-.descricao-pizza:hover{
+.descricao-pizza:hover, .descricao-pizza:active{
     background-color: black;
     color: white;
 }
