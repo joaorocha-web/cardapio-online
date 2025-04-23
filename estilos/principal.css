@@ -134,7 +134,27 @@ main{
    font-size: .8rem;
 }
 
+.carrinho-formato{
+    background-color: rgba(0, 0, 0, 0.395);
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+}
 
+.carrinho{
+    width: 75vw;
+    height: 300px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.313);
+}
 
 
 footer{
