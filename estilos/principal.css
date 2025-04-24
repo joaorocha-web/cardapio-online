@@ -154,6 +154,23 @@ main{
     background-color: white;
     border-radius: 8px;
     box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.313);
+    position: relative;
+}
+
+.carrinho h3{
+    font-size: 1.7rem;
+}
+
+.carrinho > .pedidos{
+    background-color: #f8f8f8;
+    padding:25px 10px 25px 10px ;
+}
+
+.carrinho > #fechar {
+    position: absolute;
+    left: 5px;
+    bottom: 5px;
+   
 }
 
 
@@ -162,4 +179,12 @@ footer{
     position: sticky;
     bottom: 0px;
     background-color: var(--cor1);
+    display: flex;
+}
+
+#pedidos{
+     margin-left: 30px;
+     border-radius: 4px;
+     padding: 4px;
+     
 }
