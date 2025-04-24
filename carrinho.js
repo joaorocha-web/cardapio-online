@@ -21,14 +21,40 @@ let total = 0
 document.querySelectorAll('button.comprar').forEach (botao =>{
     botao.addEventListener('click', function (){
         let nome = botao.getAttribute('data-name')
-        let preco = botao.getAttribute('data-price')
-        pedidos.innerHTML += `${nome} - ${preco} <br>`
-        total += Number(preco)
-        mostrarTotal.innerHTML = `<strong>R$${total},00</strong>`
+        let preco = Number(botao.getAttribute('data-price'))
+
+        //Criando div separada para cada pedido
+        let itemPedido = document.createElement('div')
+        itemPedido.className = 'item-pedido'
+        itemPedido.dataset.price = preco
+
+        itemPedido.innerHTML = `<span> ${nome}- R$${preco},00</span><button class="cancelar">Cancelar</button>`
+
+        pedidos.appendChild(itemPedido)
+
+
+        total += preco
         cont++
-        contador.innerHTML =`${cont}`
+        atualizarTotal()
+
+        itemPedido.querySelector('.cancelar').addEventListener('click', function (){
+            pedidos.removeChild(itemPedido)
+            total-= preco
+            cont--
+            atualizarTotal()
+        })
     })
 })
 
-// Adicionar Pedidos no Carrinho
+function atualizarTotal(){
+    mostrarTotal.innerHTML= `<strong> R$${total},00</strong>`
+    if (cont !== 0){
+        contador.style.display = 'flex'
+        contador.innerHTML = `${cont}`
+    } else {
+        contador.style.display = 'none'
+    }
+    
+}
+
 
