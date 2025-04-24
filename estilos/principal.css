@@ -116,12 +116,21 @@ main{
     font-size: .8rem;
 }
 
-.comprar{
+.descricao > div {
+    display: flex;
+    align-items: center;
     margin-top: 10px;
+    gap: 10px;
+}
+
+.comprar{
     background-color: var(--cor1);
     color: var(--cor3);
     max-width: 80px;
     border: none;
+    padding: 2px;
+    padding-left: 4px;
+    font-size: .9rem;
 }
 
 .comprar:hover, .comprar:active{
@@ -161,7 +170,7 @@ main{
     font-size: 1.7rem;
 }
 
-.carrinho > .pedidos{
+.carrinho > #pedidos{
     background-color: #f8f8f8;
     padding:25px 10px 25px 10px ;
 }
@@ -173,7 +182,12 @@ main{
    
 }
 
-.botao-carrinho{
+#botao-carrinho > .material-symbols-outlined{
+    font-size: 1.7rem;
+    z-index: 120;
+}
+
+#botao-carrinho{
     width: 50px;
     height: 50px;
     background-color: var(--cor3);
@@ -189,24 +203,37 @@ main{
     border: 3px solid var(--cor2);
 }
 
-.botao-carrinho:hover{
+#botao-carrinho:hover{
     transform: scale(1.1);
+    
 }
 
-#pedidos{
-    background-color: transparent;
-    width: 45px;
-    height: 45px;
-    border: none;
-    color: #000;
-    text-align: center;
+@keyframes animar{
+    0% { rotate: 0deg;}
+    40% {rotate: 10deg}
+    60% {rotate: -10deg;}
+    100% {rotate:0deg}
+}
+
+.animar {
+    animation: animar 0.3 ease-in;
+}
+
+#cont-pedidos{
+    color: var(--cor1);
+    position: absolute;
+    top: -8px;
+    right: -5px;
+    background: #fff;
     border-radius: 50%;
-}
-
-
-#pedidos > .material-symbols-outlined{
-    font-size: 1.6rem;
-    text-align: center;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    font-weight: bold;
+    border: 1px solid #ff4d4d;
 }
 
 footer{
