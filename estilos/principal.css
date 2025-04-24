@@ -176,8 +176,6 @@ main{
 
 footer{
     grid-area: pedidos;
-    position: sticky;
-    bottom: 0px;
     background-color: var(--cor1);
     display: flex;
 }
@@ -186,5 +184,5 @@ footer{
      margin-left: 30px;
      border-radius: 4px;
      padding: 4px;
-     
+
 }
