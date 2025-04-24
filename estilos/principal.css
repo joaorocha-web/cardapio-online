@@ -135,14 +135,14 @@ main{
 }
 
 .carrinho-formato{
-    background-color: rgba(0, 0, 0, 0.395);
+    background-color: rgba(0, 0, 0, 0.574);
     width: 100vw;
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 99;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;  
 }
@@ -173,16 +173,44 @@ main{
    
 }
 
+.botao-carrinho{
+    width: 50px;
+    height: 50px;
+    background-color: var(--cor3);
+    border-radius: 50%;
+    z-index: 100;
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 2px 9px rgba(0, 0, 0, 0.348);
+    border: 3px solid var(--cor2);
+}
+
+.botao-carrinho:hover{
+    transform: scale(1.1);
+}
+
+#pedidos{
+    background-color: transparent;
+    width: 45px;
+    height: 45px;
+    border: none;
+    color: #000;
+    text-align: center;
+    border-radius: 50%;
+}
+
+
+#pedidos > .material-symbols-outlined{
+    font-size: 1.6rem;
+    text-align: center;
+}
 
 footer{
     grid-area: pedidos;
     background-color: var(--cor1);
     display: flex;
-}
-
-#pedidos{
-     margin-left: 30px;
-     border-radius: 4px;
-     padding: 4px;
-
 }
