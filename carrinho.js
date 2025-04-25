@@ -12,6 +12,12 @@ botaoFechar.addEventListener('click', function fecharPedidos(){
     carrinho.style.display= 'none'
 })
 
+carrinho.addEventListener('click', function (event){
+    if(event.target === carrinho){
+        carrinho.style.display= 'none'
+    }
+})
+
 // Contar pedidos 
 const pedidos = document.getElementById('pedidos')
 const mostrarTotal = document.getElementById('total')

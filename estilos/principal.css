@@ -87,11 +87,12 @@ main{
     align-items: center;
 }
 
-@media (min-width: 1135px){
+@media (min-width: 1155px){
     .pizzas{
         display: flex;
         flex-flow: row wrap;
         justify-content: center;
+        gap: 20px;
     }
     .descricao-pizza:hover{
         background-color: black;
@@ -132,14 +133,14 @@ main{
 .descricao-pizza{
     display: flex;
     align-items: center;
-    padding:5px 10px 10px 10px ;
-    margin-bottom: 10px;
+    padding:10px 10px 10px 10px ;
+    margin:0px 10px 10px 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.237);
     border-radius: 10px;
 }
 
 .especiais .descricao-pizza{
-    box-shadow: 0px 0px 10px #fff0d97c;
+    box-shadow: 0px 0px 7px #fff0d95f;
 }
 
 
