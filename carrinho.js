@@ -100,23 +100,21 @@ function atualizarTotal(){
 
 // Adicionando scrollReveal 
 ScrollReveal().reveal('.boas-vindas',{
-    duration:1000
+    duration:1500,
+    origin: 'right',
+    distance: '160px'
+
 })
 
 ScrollReveal().reveal('.efeito1 , .efeito', {
-    duration: 2000,
+    duration: 2300,
     origin: 'left',
     distance:'90px'
 })
 
-ScrollReveal().reveal('.efeito2', {
+ScrollReveal().reveal('.efeito2 , .efeito3', {
     duration: 2500,
     origin: 'left',
     distance:'90px'
 })
 
-ScrollReveal().reveal('.efeito3', {
-    duration: 2900,
-    origin: 'left',
-    distance:'90px'
-})
