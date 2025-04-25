@@ -109,6 +109,12 @@ main{
         background-color: var(--cor1);
         color: var(--cor3);
     }
+    .carrinho{
+        width: 60vw;
+    }
+    .carrinho > #fechar:hover{
+        background-color: #f8f8f8;
+    }
 }
 
 .img-pizza{
@@ -170,8 +176,7 @@ main{
 }
 
 .carrinho{
-    width: 75vw;
-    min-height: 200px;
+    width: 90vw; 
     padding: 10px;
     background-color: white;
     border-radius: 8px;
@@ -185,7 +190,7 @@ main{
 
 #pedidos{
     background-color: #f8f8f8;
-    padding:25px 10px 25px 10px ;
+    ;
 }
 
 .item-pedido{
@@ -203,9 +208,12 @@ main{
 
 .carrinho > #fechar {
     position: absolute;
-    left: 5px;
+    left: 8px;
     bottom: 5px;
     color: black;
+    background-color: transparent;
+    border: none;
+    font-size: 1rem;
 }
 
 .carrinho > #confirmar{
