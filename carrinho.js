@@ -18,31 +18,62 @@ const mostrarTotal = document.getElementById('total')
 let contador = document.getElementById('cont-pedidos')
 let cont = 0
 let total = 0
+
+//Criando objeto
+const itensCarrinho = {}
+
 document.querySelectorAll('button.comprar').forEach (botao =>{
     botao.addEventListener('click', function (){
         let nome = botao.getAttribute('data-name')
         let preco = Number(botao.getAttribute('data-price'))
 
-        //Criando div separada para cada pedido
-        let itemPedido = document.createElement('div')
-        itemPedido.className = 'item-pedido'
-        itemPedido.dataset.price = preco
+    
+        if (itensCarrinho[nome]){
+            itensCarrinho[nome].quantidade++
+            itensCarrinho[nome].elemento.querySelector('span').textContent = `${nome}- R$${preco},00 [${itensCarrinho[nome].quantidade}]`
+        } else {
 
-        itemPedido.innerHTML = `<span> ${nome}- R$${preco},00</span><button class="cancelar">Cancelar</button>`
+            let itemPedido = document.createElement('div')
+            itemPedido.className = 'item-pedido'
+            itemPedido.dataset.price = preco 
+            itemPedido.dataset.name = nome
+            
+            let span = document.createElement('span')
+            span.textContent = `${nome}- R$${preco},00 [1]`
+            
+            let botaoCancelar = document.createElement('button')
+            botaoCancelar.className = 'cancelar'
+            botaoCancelar.textContent = 'Cancelar'
+            botaoCancelar.addEventListener('click', function(){
+                if(itensCarrinho[nome].quantidade>1){
+                    itensCarrinho[nome].quantidade--
+                    itensCarrinho[nome].elemento.querySelector('span').textContent = `${nome}- R$${preco},00 [${itensCarrinho[nome].quantidade}]`
+                } else {
+                    delete itensCarrinho[nome]
+                    pedidos.removeChild(itemPedido)
+                }
 
-        pedidos.appendChild(itemPedido)
+                total-= preco
+                cont--
+                atualizarTotal()
+            })
+            
+            itemPedido.appendChild(span)
+            itemPedido.appendChild(botaoCancelar)
+            pedidos.appendChild(itemPedido)
 
+            
+            itensCarrinho[nome]={
+                quantidade: 1,
+                preco: preco,
+                elemento: itemPedido
+            }
+        }
 
-        total += preco
         cont++
+        total+=preco
         atualizarTotal()
 
-        itemPedido.querySelector('.cancelar').addEventListener('click', function (){
-            pedidos.removeChild(itemPedido)
-            total-= preco
-            cont--
-            atualizarTotal()
-        })
     })
 })
 
