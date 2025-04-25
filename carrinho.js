@@ -256,10 +256,15 @@ const botaoMenu = document.getElementById('botao-menu')
 const menu = document.getElementById('menu')
 const fecharMenu = document.getElementById('fechar-menu')
 
+
 botaoMenu.addEventListener('click', function(){
     menu.style.display= 'block'
 })
 
 fecharMenu.addEventListener('click', function(){
     menu.style.display= 'none'
+})
+
+document.getElementById('links').addEventListener('click', function (){
+     menu.style.display= 'none'
 })
