@@ -17,6 +17,9 @@
     font-family: var(--fonteTexto);
 }
 
+.boas-vindas, .efeito, .efeito1, .efeito2, .efeito3{
+    visibility: hidden;
+}
 
 body{
     height: 100vh;
@@ -241,7 +244,6 @@ main{
 
 #botao-carrinho:hover{
     transform: scale(1.1);
-    
 }
 
 @keyframes animar{
@@ -252,7 +254,7 @@ main{
 }
 
 .animar {
-    animation: animar 0.3 ease-in;
+    animation: animar 0.3s ease-in;
 }
 
 #cont-pedidos{

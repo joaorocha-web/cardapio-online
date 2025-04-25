@@ -24,6 +24,14 @@ const itensCarrinho = {}
 
 document.querySelectorAll('button.comprar').forEach (botao =>{
     botao.addEventListener('click', function (){
+        //animação do carrinho ao clicar em pedir
+        
+           botaoCarrinho.classList.remove('animar');
+           setTimeout(() => {
+               botaoCarrinho.classList.add('animar');
+           }, 10);
+
+        
         let nome = botao.getAttribute('data-name')
         let preco = Number(botao.getAttribute('data-price'))
 
@@ -75,6 +83,7 @@ document.querySelectorAll('button.comprar').forEach (botao =>{
         atualizarTotal()
 
     })
+
 })
 
 function atualizarTotal(){
@@ -89,3 +98,25 @@ function atualizarTotal(){
 }
 
 
+// Adicionando scrollReveal 
+ScrollReveal().reveal('.boas-vindas',{
+    duration:1000
+})
+
+ScrollReveal().reveal('.efeito1 , .efeito', {
+    duration: 2000,
+    origin: 'left',
+    distance:'90px'
+})
+
+ScrollReveal().reveal('.efeito2', {
+    duration: 2500,
+    origin: 'left',
+    distance:'90px'
+})
+
+ScrollReveal().reveal('.efeito3', {
+    duration: 2900,
+    origin: 'left',
+    distance:'90px'
+})
