@@ -24,7 +24,7 @@ const mostrarTotal = document.getElementById('total')
 let contador = document.getElementById('cont-pedidos')
 let cont = 0
 let total = 0
-
+atualizarTotal()
 //Criando objeto
 const itensCarrinho = {}
 
@@ -124,3 +124,87 @@ ScrollReveal().reveal('.efeito2 , .efeito3', {
     distance:'90px'
 })
 
+// configurando o input para direcionar ao whatsApp
+const confirmar = document.getElementById('confirmar')
+const endereco = document.getElementById('endereco')
+confirmar.addEventListener('click', function() {
+    // 1. Validações iniciais
+    const inputValor = endereco.value.trim();
+    if (inputValor.length < 10) {
+        alert('🚨 Endereço muito curto! Mínimo 10 caracteres');
+        endereco.style.border = '2px solid #ff4444';
+        return;
+    }
+
+    if (!pizzariaAberta()) {
+        alert('⏰ Estamos fechados! Horário de funcionamento: 18h às 23h');
+        return;
+    }
+
+    // 2. Construção da URL de forma ultra compatível
+    const itensPedido = Object.keys(itensCarrinho).map(key => {
+        const item = itensCarrinho[key];
+        return `▪ ${key.replace(/:/g, '')} - ${item.quantidade}x (R$ ${item.preco})`;
+    }).join('%0a');
+
+    const mensagemBruta = 
+        `*PEDIDO PIZZARIA*%0a%0a` +
+        `${itensPedido}%0a%0a` +
+        `*Total*: R$ ${total}%0a` +
+        `*Endereço*:%0a${inputValor}`;
+
+    const mensagemCodificada = encodeURIComponent(mensagemBruta)
+        .replace(/'/g, '%27')
+        .replace(/\*/g, '%2a');
+
+    const numeroInternacional = '5532991263739'; // Sem espaços ou caracteres especiais
+    const urlWhatsApp = `https://web.whatsapp.com/send?phone=${numeroInternacional}&text=${mensagemCodificada}`;
+
+    // 3. Sistema inteligente de abertura
+    const abrirWhatsApp = () => {
+        // Tentativa 1: Método padrão
+        const janela = window.open(urlWhatsApp, '_blank', 'noopener,noreferrer');
+        
+        // Verificação em tempo real
+        setTimeout(() => {
+            if (!janela || janela.closed || janela.location.href === 'about:blank') {
+                // Tentativa 2: Criação dinâmica de link
+                const link = document.createElement('a');
+                link.href = urlWhatsApp;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                link.style.display = 'none';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                
+                // Fallback final
+                setTimeout(() => {
+                    if (!window.open(urlWhatsApp, '_blank')) {
+                        const mensagemAlerta = `Se o WhatsApp não abrir automaticamente, copie este link:${urlWhatsApp}`;
+                        alert(mensagemAlerta);
+                    }
+                }, 1000);
+            }
+        }, 300);
+    };
+
+    // 4. Pré-carregamento essencial
+    const preload = new Image();
+    preload.src = 'https://web.whatsapp.com/favicon.ico';
+    preload.onload = abrirWhatsApp;
+    preload.onerror = abrirWhatsApp;
+
+    // 5. Debug no console
+    console.log('URL Gerada:', decodeURIComponent(urlWhatsApp));
+});
+
+//verificar se a pizzaria está aberta
+function pizzariaAberta(){
+    const data = new Date()
+    const hora = data.getHours()
+    return hora >= 12 && hora <= 24
+}
+
+const abertoOuFechado = document.getElementById('horario')
+if(!pizzariaAberta()){abertoOuFechado.style.background= '#BD3537'}

@@ -13,6 +13,7 @@
         <div class="boas-vindas">
             <h1>Tratoria Itália</h1>
             <p>Um pedaço da Itália perto de você</p>
+            <p id="horario">19:00 às 23:00</p>
         
         </div>
         <menu></menu>
@@ -104,7 +105,7 @@
                         <p>Mussarela cremosa, provolone levemente defumado, bacon crocante e peperoni picante. Tomate seco, azeitonas roxas e  manjericão. Uma explosão de sabores intensos e sofisticados..</p>
                         <div>
                             <p style="font-size: 1.2rem;"><strong>R$57,00</strong></p>
-                            <button class="comprar">Pedir<span class="material-symbols-outlined">
+                            <button class="comprar" data-name="Especial da Casa" data-price="57.00">Pedir<span class="material-symbols-outlined">
                                 <span class="material-symbols-outlined">
                                     local_pizza
                                     </span>
@@ -113,6 +114,11 @@
                     </span>
                 </div>
             </article>
+
+
+
+
+
             <article class="carrinho-formato">
                 <section class="carrinho">
                     <h3>Meu Pedido:</h3>
@@ -123,7 +129,7 @@
 
                     </div>
                     <p>
-                        <input type="text" name="end" id="iend" placeholder="Endereço de entrega">
+                        <input type="text" name="end" id="endereco" placeholder="Endereço de entrega">
                     </p>
                     <button id="fechar">Fechar</button>
                     <button id="confirmar">Confirmar Pedido</button>
@@ -138,6 +144,11 @@
                    
            
         </section> 
+
+
+
+
+
         <section class="especiais">
             <h2 class="efeito">Especiais- </h2>
             <article class="pizzas">
