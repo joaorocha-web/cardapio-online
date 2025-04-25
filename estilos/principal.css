@@ -213,6 +213,7 @@ main{
 #botao-carrinho > .material-symbols-outlined{
     font-size: 1.7rem;
     z-index: 120;
+    color: black;
 }
 
 #botao-carrinho{
