@@ -134,6 +134,12 @@ main{
     align-items: center;
     padding:5px 10px 10px 10px ;
     margin-bottom: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.237);
+    border-radius: 10px;
+}
+
+.especiais .descricao-pizza{
+    box-shadow: 0px 0px 10px #fff0d97c;
 }
 
 
@@ -158,9 +164,9 @@ main{
     color: var(--cor3);
     max-width: 80px;
     border: none;
-    padding: 2px;
-    padding-left: 4px;
+    padding: 2px 3px 2px 5px;
     font-size: .9rem;
+    font-weight: 700;
 }
 
 .material-symbols-outlined{
