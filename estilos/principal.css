@@ -88,6 +88,14 @@ main{
         flex-flow: row wrap;
         justify-content: center;
     }
+    .descricao-pizza:hover{
+        background-color: black;
+        color: white;
+    }
+    .comprar:hover{
+        background-color: var(--cor2);
+        transform: scale(1.1);
+    }
 }
 
 .img-pizza{
@@ -103,10 +111,7 @@ main{
     margin-bottom: 10px;
 }
 
-.descricao-pizza:hover, .descricao-pizza:active{
-    background-color: black;
-    color: white;
-}
+
 
 .descricao {
     display: flex;
@@ -131,11 +136,6 @@ main{
     padding: 2px;
     padding-left: 4px;
     font-size: .9rem;
-}
-
-.comprar:hover, .comprar:active{
-    background-color: var(--cor2);
-    transform: scale(1.1);
 }
 
 .material-symbols-outlined{
