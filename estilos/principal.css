@@ -63,21 +63,23 @@ header{
 }
 
 
-
-
-
-
-
 main{
     grid-area: produtos;
     background-color: var(--cor3);
     padding-top: 20px;
 }
-
-.conteudo{
-    height: 100%;
-    overflow-y: scroll;
+.tradicionais{
+    padding-top: 10px;
+    padding-bottom: 50px;
 }
+
+.especiais{
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #000;
+    color: white;
+}
+
 
 .pizzas{
     display: flex;
@@ -94,6 +96,10 @@ main{
     .descricao-pizza:hover{
         background-color: black;
         color: white;
+    }
+    .especiais .descricao-pizza:hover{
+        background-color: var(--cor3);
+        color: #000;
     }
     .comprar:hover{
         background-color: var(--cor2);
