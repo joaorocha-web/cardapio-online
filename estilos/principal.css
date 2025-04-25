@@ -195,6 +195,7 @@ main{
     position: absolute;
     left: 5px;
     bottom: 5px;
+    text-decoration: none;
 }
 
 .carrinho > #confirmar{
@@ -206,6 +207,7 @@ main{
     border: none;
     padding: 4px;
     font-size: 1rem;
+    
 }
 
 #botao-carrinho > .material-symbols-outlined{
