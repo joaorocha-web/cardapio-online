@@ -128,70 +128,119 @@ ScrollReveal().reveal('.efeito2 , .efeito3', {
 const confirmar = document.getElementById('confirmar')
 const endereco = document.getElementById('endereco')
 confirmar.addEventListener('click', function() {
-    // 1. Validações básicas
+    // 1. Validações
     if (endereco.value.trim().length < 10) {
-        endereco.style.border = '2px solid red';
+        endereco.style.border = '2px solid #ff4444';
         return;
     }
 
-    // 2. Formatar mensagem SIMPLES (sem caracteres especiais)
-    let mensagem = "PEDIDO:\n\n";
-    
-    Object.keys(itensCarrinho).forEach(key => {
-        const item = itensCarrinho[key];
-        mensagem += `${key}: ${item.quantidade}x R$ ${item.preco}\n`;
-    });
-    
-    mensagem += `\nTotal: R$ ${total}\n`;
-    mensagem += `Endereço: ${endereco.value.trim()}`;
+    // 2. Construir mensagem
+    const itens = Object.entries(itensCarrinho).map(([nome, item]) => 
+        `• ${nome}: ${item.quantidade}x R$ ${item.preco.toFixed(2).replace('.', ',')}`
+    ).join('\n');
 
-    // 3. Criar elemento VISÍVEL na página
-    const linkContainer = document.createElement('div');
-    linkContainer.style.cssText = `
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: white;
-        padding: 20px;
-        border: 2px solid #25D366;
-        border-radius: 10px;
-        z-index: 10000;
-        text-align: center;
-    `;
+    const mensagem = `*🍕 PEDIDO CONFIRMADO 🍕*\n\n${itens}\n\n*Total*: R$ ${total.toFixed(2).replace('.', ',')}\n*Endereço*: ${endereco.value.trim()}\n\n*Obrigado pela preferência!*`;
 
-    linkContainer.innerHTML = `
-        <p style="margin-bottom: 15px; font-weight: bold;">Pedido pronto!</p>
-        <p style="margin-bottom: 10px; font-size: 14px;">Clique no botão abaixo para abrir no WhatsApp:</p>
-        <a href="https://wa.me/5532991263739" 
-           onclick="this.href='https://wa.me/5532991263739?text='+encodeURIComponent(\`${mensagem}\`)" 
-           style="
-               background: #25D366;
-               color: white;
-               padding: 10px 15px;
-               border-radius: 5px;
-               text-decoration: none;
-               display: inline-block;
-           ">
-           📲 Abrir WhatsApp
-        </a>
-        <button 
-            onclick="this.parentElement.remove()" 
-            style="
-                position: absolute;
-                top: 5px;
-                right: 5px;
-                background: none;
-                border: none;
-                font-size: 20px;
-                cursor: pointer;
-            ">
-            ×
-        </button>
-    `;
-
-    document.body.appendChild(linkContainer);
+    // 3. MOSTRAR MODAL PRIMEIRO (sem abrir WhatsApp ainda)
+    mostrarModalVerde(mensagem, '5532991263739'); // Substitua pelo seu número
 });
+
+// Modal verde vibrante (agora controla o redirecionamento)
+function mostrarModalVerde(mensagem, numero) {
+    const modal = document.createElement('div');
+    modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.7);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    `;
+
+    modal.innerHTML = `
+        <div style="
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-top: 5px solid #25D366;
+        ">
+            <div style="
+                background: linear-gradient(135deg, #25D366, #128C7E);
+                color: white;
+                padding: 20px;
+                text-align: center;
+            ">
+                <h2 style="margin: 0; font-size: 22px;">🎉 Pedido Pronto!</h2>
+                <p style="margin: 10px 0 0; opacity: 0.9;">Clique abaixo para enviar</p>
+            </div>
+            
+            <div style="padding: 20px;">
+                <div style="
+                    background: #f9f9f9;
+                    border-radius: 8px;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    max-height: 200px;
+                    overflow-y: auto;
+                ">
+                    <pre style="margin: 0; font-family: Arial; white-space: pre-wrap;">${mensagem.replace(/\*/g, '')}</pre>
+                </div>
+                
+                <button id="enviarWhatsAppBtn"
+                   style="
+                       width: 100%;
+                       background: #25D366;
+                       color: white;
+                       border: none;
+                       padding: 12px;
+                       border-radius: 6px;
+                       font-weight: bold;
+                       cursor: pointer;
+                       margin-bottom: 10px;
+                       transition: all 0.3s;
+                   "
+                   onmouseover="this.style.transform='scale(1.02)'; this.style.boxShadow='0 5px 15px rgba(37, 211, 102, 0.4)';"
+                   onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';"
+                >
+                    📲 ENVIAR VIA WHATSAPP
+                </button>
+                
+                <button onclick="this.closest('div[style*=\"position: fixed\"]').remove()" 
+                   style="
+                       width: 100%;
+                       padding: 10px;
+                       background: white;
+                       color: #666;
+                       border: 1px solid #ddd;
+                       border-radius: 6px;
+                       cursor: pointer;
+                       transition: all 0.3s;
+                   "
+                   onmouseover="this.style.borderColor='#25D366'; this.style.color='#25D366';"
+                   onmouseout="this.style.borderColor='#ddd'; this.style.color='#666';"
+                >
+                    Fechar
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Adiciona evento ao botão verde
+    modal.querySelector('#enviarWhatsAppBtn').addEventListener('click', function() {
+        // Só abre o WhatsApp quando clicado no botão verde
+        window.open(`https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`, '_blank');
+        modal.remove(); // Fecha o modal após abrir WhatsApp
+    });
+
+    document.body.appendChild(modal);
+}
 //verificar se a pizzaria está aberta
 function pizzariaAberta(){
     const data = new Date()
