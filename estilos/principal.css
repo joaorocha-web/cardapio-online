@@ -17,6 +17,10 @@
     font-family: var(--fonteTexto);
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 .boas-vindas, .efeito, .efeito1, .efeito2, .efeito3{
     visibility: hidden;
 }
@@ -51,6 +55,55 @@ header{
     background-size: cover;
     
 }
+header > .material-symbols-outlined{
+    position: fixed;
+    top: 2px;
+    right: 5px;
+    font-size: 2rem;
+    color: var(--cor3);
+    cursor: pointer;
+}
+
+#menu{
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 170px;
+    background-color: #fff0d9f3;
+    border-radius: 0px 0px 0px 5px;
+    padding-bottom: 15px;
+}
+
+#menu > div{
+    display: flex;
+    justify-content: right;
+}
+
+#menu .material-symbols-outlined{
+    padding-top: 2px;
+    padding-right: 5px;
+    font-size: 2rem;
+    cursor: pointer;
+   
+}
+
+#links>li{
+    padding-top: 10px;
+    list-style: none;
+    font-size: 1.2rem;
+    margin-left: 10px;
+}
+
+#links>li>a{
+    color: #000;
+    text-decoration: none;
+    margin-top: 35px;
+    font-family: var(--fonteTitulo);
+    font-weight: 500;
+}
+
+
 
 .boas-vindas{
     display: flex;

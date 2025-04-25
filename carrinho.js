@@ -250,3 +250,16 @@ function pizzariaAberta(){
 
 const abertoOuFechado = document.getElementById('horario')
 if(!pizzariaAberta()){abertoOuFechado.style.background= '#BD3537'}
+
+// vamos configurar o menu interativo
+const botaoMenu = document.getElementById('botao-menu')
+const menu = document.getElementById('menu')
+const fecharMenu = document.getElementById('fechar-menu')
+
+botaoMenu.addEventListener('click', function(){
+    menu.style.display= 'block'
+})
+
+fecharMenu.addEventListener('click', function(){
+    menu.style.display= 'none'
+})
