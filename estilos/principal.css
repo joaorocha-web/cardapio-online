@@ -29,16 +29,10 @@ body{
     grid-template-areas: "cabecalho" "produtos" "pedidos";
 }
 
-@media (min-width: 768px){
-    body{
-        grid-template-rows:  200px 1fr 30px; 
-    }
-}
-
 h1{
     font-family: var(--fonteTitulo);
     font-size: 3rem;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.372);
+    text-shadow: 2px 2px 5px rgb(0, 0, 0);
     color: var(--cor3);
 }
 
@@ -72,6 +66,7 @@ header{
     padding: 5px;
     background-color: #0E7D4F;
     border-radius: 5px;
+    box-shadow: 4px 6px 10px rgba(0, 0, 0, 0.469);
 }
 
 
