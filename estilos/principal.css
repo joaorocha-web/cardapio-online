@@ -96,6 +96,16 @@ main{
         background-color: var(--cor2);
         transform: scale(1.1);
     }
+    .item-pedido >.cancelar{
+        position: absolute;
+        right: 10px;
+        border: none;
+        padding: 3px;
+    }
+    .item-pedido >.cancelar:hover{
+        background-color: var(--cor1);
+        color: var(--cor3);
+    }
 }
 
 .img-pizza{
@@ -184,9 +194,6 @@ main{
     right: 10px;
     border: none;
     padding: 3px;
-}
-
-.item-pedido >.cancelar:hover{
     background-color: var(--cor1);
     color: var(--cor3);
 }
@@ -195,7 +202,7 @@ main{
     position: absolute;
     left: 5px;
     bottom: 5px;
-    text-decoration: none;
+    color: black;
 }
 
 .carrinho > #confirmar{
