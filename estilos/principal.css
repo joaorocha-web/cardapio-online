@@ -39,6 +39,7 @@ h1{
     font-family: var(--fonteTitulo);
     font-size: 3rem;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.372);
+    color: var(--cor3);
 }
 
 h2{
@@ -51,7 +52,10 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--cor2);
+    background-image: url(../imagens/principal-900px-escuro.jpeg);
+    background-position:top center;
+    background-size: cover;
+    
 }
 
 .boas-vindas{
@@ -60,6 +64,7 @@ header{
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: var(--cor3);
 }
 
 #horario{

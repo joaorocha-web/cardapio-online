@@ -245,7 +245,7 @@ function mostrarModalVerde(mensagem, numero) {
 function pizzariaAberta(){
     const data = new Date()
     const hora = data.getHours()
-    return hora >= 12 && hora <= 24
+    return hora >= 19.01 && hora <= 24
 }
 
 const abertoOuFechado = document.getElementById('horario')
