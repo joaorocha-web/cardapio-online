@@ -97,3 +97,22 @@ container2.addEventListener('scroll', function() {
         }
     });
 });
+
+// vamos configurar o menu interativo
+const botaoMenu = document.getElementById('botao-menu')
+const menu = document.getElementById('menu')
+const fecharMenu = document.getElementById('fechar-menu')
+
+
+botaoMenu.addEventListener('click', function(){
+    menu.style.display= 'block'
+    console.log(botaoMenu)
+})
+
+fecharMenu.addEventListener('click', function(){
+    menu.style.display= 'none'
+})
+
+document.getElementById('links').addEventListener('click', function (){
+     menu.style.display= 'none'
+})
