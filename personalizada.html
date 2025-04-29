@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="estilos/personalizada.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <title>Pizzaria</title>
+</head>
+<body>
+    <header>
+        <div class="boas-vindas">
+        </div>
+        <span class="material-symbols-outlined" id="botao-menu" >
+            menu
+            </span>
+        <menu id="menu">
+            <div>
+                <span class="material-symbols-outlined" id="fechar-menu" >
+                    menu
+                    </span>
+            </div>
+            <ul id="links">
+                <li><a href="#tradicionais">Tradicionais</a></li>
+                <li><a href="#especiais">Especiais</a></li>
+                <li><a href="#promocao">Promoção</a></li>
+                <li><a href="#personalizada">Personalizada</a></li>
+                <li><a href="#sobrenos">Sobre nós</a></li>
+            </ul>
+        </menu>
+    </header>
+    <main>
+        <section class="personalizar">
+            <h2>Monte sua própria pizza!</h2>
+            <p>Você pode escolher quais sabores deseja mesclar na mesma pizza. De acordo com os sabores selecionados, faremos uma pizza meia a meia ideal para você!</p>
+
+            <h3>Escolha os sabores:</h3>
+            <div class="sabores">
+                <button>Calabresa</button>
+                <button>Frango-Catupiry</button>
+                <button>Marguerita</button>
+                <button>Portuguesa</button>
+                <button>Calabresa</button>
+                <button>Frango-Catupiry</button>
+                <button>Marguerita</button>
+                <button>Portuguesa</button>
+                
+            </div>
+            <div class="pizza">
+                <div class="imagem">
+                    
+                </div>
+
+            </div>
+        </section>
+
+        
+        <article class="carrinho-formato">
+            <section class="carrinho">
+                <h3>Meu Pedido:</h3>
+                <div id="pedidos">
+                    
+                </div>
+                <div id="total">
+
+                </div>
+                <p>
+                    <input type="text" name="end" id="endereco" placeholder="Endereço de entrega">
+                </p>
+                <button id="fechar">Fechar</button>
+                <button id="confirmar">Confirmar Pedido</button>
+            </section>
+        </article>
+        
+        <button id="botao-carrinho"><span class="material-symbols-outlined">
+            shopping_cart
+            </span>
+            <span id="cont-pedidos">0</span>
+        </button>
+        
+    </main>
+    <footer>
+  
+    </footer>
+  
+    <script src="carrinho.js"></script>
+</body>
+</html>
