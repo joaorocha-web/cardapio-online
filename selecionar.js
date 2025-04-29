@@ -9,8 +9,6 @@ let c = 1
 document.querySelectorAll('.opcao').forEach(saborPizza =>{
     saborPizza.addEventListener('click', function(){
         
-        
-        console.log(c)
         desabilitar1.style.display= 'flex'
         let nome = saborPizza.getAttribute('data-name');
         let preco = Number(saborPizza.getAttribute('data-price'));
