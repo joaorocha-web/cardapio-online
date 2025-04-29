@@ -110,7 +110,7 @@ header > .material-symbols-outlined{
 
 main{
     grid-area: produtos;
-    background-color:#a54444;
+    background-color:#000 ;
     color: var(--cor3);
     min-height: 800px;
     padding: 50px 20px 50px 20px;
@@ -133,25 +133,48 @@ main{
     display: flex;
     flex-flow: row wrap;
     justify-content: center;
+    gap: 10px;
 }
 
-.sabores button{
-    margin: 10px;
-}
-
-.pizza{
-    padding: 20px;
-}
-
-.pizza .imagem{
+.primeiro-sabor , .segundo-sabor{
+    background-color: #ff4d4d;
+    width: 40vw;
     height: 250px;
-    width: 250px;
-    background-image: url(/imagens/personalizar/pizza-semfundo-300px.png);
-    background-position: center center;
-    background-size: cover;
-    border-radius: 50%;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.658);
+    overflow-y: scroll;
+   
 }
+
+.opcao{
+    width: 100%;
+    height: 100px;
+    background-color: #121212;
+    color: var(--cor3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}  
+
+.opcao > h3{
+    font-size: 1.3rem;
+}
+
+::-webkit-scrollbar{
+    width: 0px;
+    height: 0px;
+}
+
+
+.selecionar1{
+    width: 38%;
+    height: 100px;
+    background-color: #4444446d; 
+    position: absolute;
+    bottom: 0;
+}
+
+
+
+
 
 
 
