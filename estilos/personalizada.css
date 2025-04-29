@@ -42,6 +42,7 @@ h2{
     font-family: var(--fonteTitulo);
     font-weight: 500;
     padding: 10px;
+    font-size: 2rem;
 }
 header{
     grid-area: cabecalho;
@@ -120,6 +121,10 @@ main{
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.personalizar >h3{
+    font-size: 2rem;
 }
 
 .personalizar > p{
