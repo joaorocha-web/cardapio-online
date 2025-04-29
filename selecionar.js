@@ -5,17 +5,29 @@ const imgPizza = document.getElementById('img-pizza')
 const desabilitar1 = document.getElementById('desabilitado1')
 const desabilitar2 = document.getElementById('desabilitado2')
 const estiloDesabilitar2 = window.getComputedStyle(desabilitar2).display;
+let c = 1
 document.querySelectorAll('.opcao').forEach(saborPizza =>{
     saborPizza.addEventListener('click', function(){
+        
+        
+        console.log(c)
+        desabilitar1.style.display= 'flex'
         let nome = saborPizza.getAttribute('data-name');
         let preco = Number(saborPizza.getAttribute('data-price'));
         let sabor = saborPizza.getAttribute('data-sabor')
         imgPizza.src = `pizza-metade-${sabor}.png`
         
+        if(c === 1){
+            imgPizza.src = `pizza-metade-${sabor}.png`
+        } else{
+            imgPizza.src = `pizza-metade-${sabor}-metade-calabresa.png`
+        }
 
-        desabilitar1.style.display= 'flex'
+        
         const estiloAtual = window.getComputedStyle(desabilitar2).display;
         desabilitar2.style.display = estiloAtual === 'flex' ? 'none' : 'flex';
+
+        c++
     })
 
    
