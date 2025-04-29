@@ -205,6 +205,16 @@ main{
     z-index: 20;
 }
 
+ .destaque{
+    color: #ffddaa;
+   
+}
+
+.destaque >h3{
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
 
 
 

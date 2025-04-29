@@ -31,3 +31,29 @@ containers.forEach(container => {
         });
     });
 });
+
+const container = document.getElementsByClassName('primeiro-sabor')[0];
+const mascara = document.getElementsByClassName('selecionar')[0];
+const opcoes = document.querySelectorAll('.opcao');
+
+container.addEventListener('scroll', function() {
+    const containerRect = container.getBoundingClientRect();
+    const mascaraRect = mascara.getBoundingClientRect();
+    
+    // Posição da máscara relativa ao contêiner
+    const mascaraTop = mascaraRect.top - containerRect.top;
+    const mascaraBottom = mascaraTop + mascara.offsetHeight;
+
+    opcoes.forEach(opcao => {
+        const opcaoRect = opcao.getBoundingClientRect();
+        const opcaoTop = opcaoRect.top - containerRect.top;
+        const opcaoBottom = opcaoTop + opcao.offsetHeight;
+
+        // Verifica se a opção está dentro da máscara
+        if (opcaoBottom > mascaraTop && opcaoTop < mascaraBottom) {
+            opcao.classList.add('destaque');
+        } else {
+            opcao.classList.remove('destaque');
+        }
+    });
+});
