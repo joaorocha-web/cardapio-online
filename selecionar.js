@@ -18,13 +18,13 @@ document.querySelectorAll('.opcao').forEach(sabor =>{
    
 })
 
-// Seleciona TODOS os containers (retorna uma NodeList)
+
 const containers = document.querySelectorAll('.primeiro-sabor, .segundo-sabor');
 
-// Adiciona o evento a cada container
+
 containers.forEach(container => {
     container.addEventListener('wheel', (e) => {
-        e.preventDefault(); // Impede o scroll padrão
+        e.preventDefault(); 
         container.scrollBy({
             top: e.deltaY > 0 ? 50 : -50, // Rola 50px para baixo ou cima
             behavior: 'smooth'
