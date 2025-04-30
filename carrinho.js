@@ -259,7 +259,6 @@ const fecharMenu = document.getElementById('fechar-menu')
 
 botaoMenu.addEventListener('click', function(){
     menu.style.display= 'block'
-    console.log(botaoMenu)
 })
 
 fecharMenu.addEventListener('click', function(){
