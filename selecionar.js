@@ -18,7 +18,7 @@ document.querySelectorAll('.opcao').forEach(saborPizza =>{
         if(c === 1){
             imgPizza.src = `pizza-metade-${sabor}.png`
         } else{
-            imgPizza.src = `pizza-metade-${sabor}-metade-calabresa.png`
+            imgPizza.src = `pizza-metade-${sabor}-metade-marguerita.png`
         }
 
         
